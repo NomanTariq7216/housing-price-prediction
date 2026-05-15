@@ -1,0 +1,16 @@
+# Machine Learning / Data Science models and data
+model.pkl
+*.pkl
+*.json
+.ipynb_checkpoints/
+
+# Python environment and caches
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# Operating system junk
+.DS_Store
+Thumbs.db
