@@ -95,11 +95,7 @@ python3 main.py
 5. Saves results to `output.csv`
 
 **Expected Output:**
-RMSE for the predictions: 47197.66824186381
-MAE for the predictions: 30929.476097383722
-R² Score: 0.8290804707970139
-Error percentage: 22.882853095835635
-Inference completed and output saved to output.csv.
+RMSE for the predictions: 47197.66824186381                                                                                   MAE for the predictions: 30929.476097383722                                                                                   R² Score: 0.8290804707970139                                                                                                  Error percentage: 22.882853095835635                                                                                          Inference completed and output saved to output.csv.
 
 ## 📈 Model Performance
 
