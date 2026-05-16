@@ -6,6 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import mean_absolute_error, r2_score, root_mean_squared_error
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import cross_val_score
@@ -90,6 +91,23 @@ else:
     transformed_input = pipeline.transform(input_data)
     predictions = model.predict(transformed_input)
     input_data['median_house_value'] = predictions
+
+    # calculate the RMSE for the predictions
+    actual_values = pd.read_csv('input(Copy)_Actual_test_set.csv')['median_house_value'].values
+    rmse = root_mean_squared_error(actual_values, predictions)
+    print("RMSE for the predictions:", rmse)
+
+    # calculate MAE for the predictions
+    mae = mean_absolute_error(actual_values, predictions)
+    print("MAE for the predictions:", mae)
+
+    # calculate model accuracy using R^2 score 
+    r2_score = model.score(transformed_input, actual_values)
+    print("R² Score:", r2_score)
+
+    # calculate error percentage
+    error_percentage = (rmse / np.mean(actual_values)) * 100
+    print("Error percentage:", error_percentage)
 
     input_data.to_csv("output.csv", index=False)
     print("Inference completed and output saved to output.csv.")
